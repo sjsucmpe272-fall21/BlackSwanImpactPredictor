@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/xuhangyuan/Desktop/Sample-Flask-app-1.0.0/.venv"
+VIRTUAL_ENV="/Users/xuhangyuan/Documents/GitHub/BlackSwanImpactPredictor/project272/.venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

@@ -1,0 +1,8 @@
+static/*
+!static/.gitkeep
+
+temp
+
+.venv
+
+__pycache__
