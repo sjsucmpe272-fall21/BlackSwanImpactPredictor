@@ -51,7 +51,7 @@ data = {
 } 
 
 use_cached_data = True
-# data_type = "tradewar"
+data_type = "tradewar"
 token = "3e609e553c274103bf2acd8dd9029d8c"
 
 
@@ -94,10 +94,10 @@ def process_URL(data_type):
                 + token
             )
             response = requests.get(url)
-            data = response.json()
+            json_data = response.json()
             #     print(data)
-            if "similarity" in data:
-                similarities.append(data["similarity"])
+            if "similarity" in json_data:
+                similarities.append(json_data["similarity"])
     else:
         similarities = data[data_type]["similarities"]
 
@@ -177,7 +177,7 @@ def process_URL(data_type):
         for (i, s) in enumerate(dateset)
     ]
 
-    data = [trace_close]
+    data_trace = [trace_close]
 
     layout = dict(
         title="Stock prices",
@@ -193,7 +193,7 @@ def process_URL(data_type):
     )
     response = {}
 
-    fig = dict(data=data, layout=layout)
+    fig = dict(data=data_trace, layout=layout)
     file_content = save_get_graph_image(fig)
 
     # Calculate t-test
@@ -233,4 +233,4 @@ def process_URL(data_type):
     print("Impact score =", impact_score)
     print("Sentiment = ", sentiment)
 
-    return (filename, impact_score, sentiment)
+    return (file_content, impact_score, sentiment)
