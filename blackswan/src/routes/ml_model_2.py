@@ -32,40 +32,23 @@ def save_get_graph_image(fig):
 
 
 data = {
-    "amazon": {
-        "news_url": "https://news.yahoo.com/amazon-pushing-hard-ocean-shipping-200001052.html",
-        "historical_news_path": f"{SRC_DIR}/news_data/amazon_news.csv",
-        "similarities": [
-            0.7791,
-            0.5986,
-            0.7309,
-            0.7061,
-            0.7184,
-            0.648,
-            0.6707,
-            0.4732,
-            0.7404,
-            0.7302,
-            0.7908,
-            0.7849,
-            0.7267,
-            0.7621,
-            0.7944,
-            0.7392,
-            0.5898,
-        ],
+    'amazon': 
+        { 
+            'news_url': 'https://news.yahoo.com/amazon-pushing-hard-ocean-shipping-200001052.html',
+            'historical_news_path': 'news_data/amazon_news.csv',
+            'similarities': [0.7791, 0.5986, 0.7309, 0.7061, 0.7184, 0.648, 0.6707, 0.4732, 0.7404, 0.7302, 0.7908, 0.7849, 0.7267, 0.7621, 0.7944, 0.7392, 0.5898]
+        },
+    'tradewar':{
+            'news_url':'https://www.reuters.com/article/us-usa-trade-china-jobs/u-s-china-trade-war-has-cost-up-to-245000-u-s-jobs-business-group-study-idUSKBN29J2O9',
+            'historical_news_path':'news_data/tradewar.csv',
+            'similarities':[0.7752, 1.0, 0.458, 0.718, 0.7178, 0.7776]
     },
-    "tradewar": {
-        "news_url": "https://www.nytimes.com/live/2021/03/17/business/stock-market-today",
-        "historical_news_path": f"{SRC_DIR}/news_data/tradewar.csv",
-        "similarities": [0.5961, 0.5891, 0.2861, 0.6685, 0.6292, 0.7172],
-    },
-    "fedhikerates": {
-        "news_url": "https://www.cnbc.com/2018/12/19/stock-markets-dow-futures-edge-higher-federal-reserve-rate-decision.html",
-        "historical_news_path": f"{SRC_DIR}/news_data/fedhikerates.csv",
-        "similarities": [0.7096, 0.7773, 0.4398, 0.6639, 0.6728, 0.7551, 0.7779],
-    },
-}
+    'fedhikerates':{
+            'news_url':'https://www.theguardian.com/business/2018/dec/19/federal-reserve-interest-rates-raised-trump',
+            'historical_news_path':'news_data/fedhikerates.csv',
+            'similarities':[0.746, 1.0, 0.5033, 0.7413, 0.716, 0.7886, 0.8383]
+    }
+} 
 
 use_cached_data = True
 # data_type = "tradewar"
@@ -242,9 +225,12 @@ def process_URL(data_type):
     b = list(relevant_stock_data.loc[historical_news_dates]["Change_Stock"])
     a = list(relevant_stock_data.loc[remaining_dates]["Change_Stock"])
 
-    _, p2 = stats.ttest_ind(a, b, equal_var=True)
+    _, p2 = stats.ttest_ind(a,b,equal_var = True)
+    impact_score = (10 - p2*10).round(1)
+    sentiment = res_json['sentiment']['type'].capitalize()
 
     print("t-statistics =", p2)
-    print("Sentiment = ", res_json["sentiment"])
+    print("Impact score =", impact_score)
+    print("Sentiment = ", sentiment)
 
-    return file_content, p2, res_json['sentiment']['type']
+    return (filename, impact_score, sentiment)
