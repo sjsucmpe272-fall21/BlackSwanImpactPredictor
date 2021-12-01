@@ -1,15 +1,18 @@
 
 from flask import Blueprint, Response, abort, request, url_for
-
-from src.routes.ml_model import process_URL
+from src.routes.ml_model_2 import process_URL
 
 app_routes = Blueprint("app_routes", "api")
 
 @app_routes.post("/process-model")
 def process_model():
   requestJson = request.get_json()
-  reqUrl = requestJson['req_url']
+  reqDataType = requestJson['data_type']
 
-  filename = process_URL(reqUrl)
+  file_content, impact_score, sentiment = process_URL(reqDataType)
 
-  return url_for('static', filename=filename, _external=True)
+  return {
+    'file_content': file_content,
+    'impact_score': impact_score,
+    'sentiment': sentiment
+  }
