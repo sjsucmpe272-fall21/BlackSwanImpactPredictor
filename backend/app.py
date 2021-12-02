@@ -1,11 +1,11 @@
+import os
 import pathlib
-from flask import Blueprint, Response, abort, request, url_for
-from routes.ml_model_2 import process_URL
 
-from flask import Flask
+from flask import Blueprint, Flask, Response, abort, request, url_for
+
+from ml_model import process_URL
 
 UPLOAD_FOLDER = pathlib.Path.cwd() / "static"
-# app_routes = Blueprint("app_routes", "api")
 
 cached_data = {}
 
@@ -27,3 +27,9 @@ def process_model():
     'impact_score': impact_score,
     'sentiment': sentiment
   }
+  
+if __name__ == "__main__":
+	app.run(
+		host=os.environ.get("FLASK_HOST") or "0.0.0.0",
+		debug=os.environ.get("FLASK_ENV") == "development",
+	)

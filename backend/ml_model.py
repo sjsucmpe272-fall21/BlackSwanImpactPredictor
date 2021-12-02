@@ -14,8 +14,7 @@ cf.go_offline()
 from scipy import stats
 
 CURRENT_DIR = os.path.dirname(__file__)
-SRC_DIR = f"{CURRENT_DIR}/.."
-STATIC_DIR = f'{SRC_DIR}/../static'
+STATIC_DIR = f'./static'
 
 def save_get_graph_image(fig):
     encoded_string = None
@@ -106,7 +105,7 @@ def process_URL(data_type):
 
     # Get the stock data for the date range of the news
 
-    stock_data = pd.read_csv(f"{SRC_DIR}/stock_data/spy500_historical_data.csv", sep=",")
+    stock_data = pd.read_csv(f"./stock_data/spy500_historical_data.csv", sep=",")
     stock_data.rename(columns={"Close/Last": "Close"}, inplace=True)
     stock_data["Change_Stock"] = stock_data["Close"].diff(periods=-1)
     stock_data["Date"] = pd.to_datetime(stock_data["Date"]).dt.date
