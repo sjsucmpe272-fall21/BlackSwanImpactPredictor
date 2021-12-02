@@ -4,3 +4,10 @@
 
 nohup flask run --host=0.0.0.0 &
 
+
+** Sample cURL command ** 
+
+curl --location --request POST 'http://127.0.0.1:5000/api/process-model' --header 'Content-Type: application/json' --data-raw '{
+    "data_type" : "amazon"
+}'
+
