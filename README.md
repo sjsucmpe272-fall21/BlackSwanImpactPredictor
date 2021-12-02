@@ -4,7 +4,7 @@
 ## Stock market prediction based on Black Swan events
 
 ### Problem Statement
-A mobile/web app to analyze the Blackswan events across the globe and predict their effect on the stock market.
+A mobile app to analyze the Blackswan events across the globe and predict their effect on the stock market.
 
 ### Abstract
 A Black swan event is an event that is totally unexpected and catches people off guard due to its severe and significant widespread impact. The recent example of a Blackswan event was the COVID-19 pandemic as no one saw it coming. It destroyed people’s lives and eviscerated the stock market. So, to prepare well ahead of time and avoid future market crashes, we aim to build a system which will analyze the events based on news headlines around the world and predict the possible impact of a blackswan event on the stock market.
