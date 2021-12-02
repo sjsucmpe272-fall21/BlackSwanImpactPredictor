@@ -1,0 +1,6 @@
+1. SSH to AWS
+2. Add the code tar file(black_swan.tar.gz) to AWS
+3. Run the flask app:
+
+nohup flask run --host=0.0.0.0 &
+
