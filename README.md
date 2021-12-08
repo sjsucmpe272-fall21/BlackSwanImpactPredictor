@@ -1,6 +1,6 @@
 # BlackSwanImpactPredictor
 
-**Report:** [View]()
+**Report:** [View](https://github.com/sjsucmpe272-fall21/BlackSwanImpactPredictor/blob/4e0a15657a2f671b04c63f1ae3bd40fc238d9865/documentation/CMPE%20272%20-%20Group%207%20-%20Project%20Report.pdf)
 
 **Presentation:** [View](https://github.com/sjsucmpe272-fall21/BlackSwanImpactPredictor/blob/main/documentation/CMPE%20272%20-%20Group%207%20-%20Project%20Presentation.pdf)
 
