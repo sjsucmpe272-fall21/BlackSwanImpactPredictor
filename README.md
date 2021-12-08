@@ -2,11 +2,11 @@
 
 **Report:** [View]()
 
-**Presentation:** [View](https://github.com/sjsucmpe272-fall21/BlackSwanImpactPredictor/blob/main/documentation/CMPE%20272%20-%20Group%207%20-%20Project%20Presentation.pptx)
+**Presentation:** [View](https://github.com/sjsucmpe272-fall21/BlackSwanImpactPredictor/blob/main/documentation/CMPE%20272%20-%20Group%207%20-%20Project%20Presentation.pdf)
 
 **API details:**
 
-Endpoint URL: http://18.222.219.39:5000/api/process-model
+Endpoint URL: http://18.222.25.85:5000/api/process-model
 
 Request:
 
