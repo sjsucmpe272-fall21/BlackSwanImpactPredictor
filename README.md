@@ -1,5 +1,34 @@
 # BlackSwanImpactPredictor
 
+**Report:** [View]()
+
+**Presentation:** [View](https://github.com/sjsucmpe272-fall21/BlackSwanImpactPredictor/blob/main/documentation/CMPE%20272%20-%20Group%207%20-%20Project%20Presentation.pptx)
+
+**API details:**
+
+Endpoint URL: http://18.222.219.39:5000/api/process-model
+
+Request:
+
+```
+{
+    "data_type" : "<news_type>"
+}
+
+//As of now, valid news_type values are amazon, tradewar, fedhikerates.
+```
+
+
+Response: 
+
+```
+{
+    'file_content': <base64_encoded_stock_movement_chart>,
+    'impact_score': <impact_score>,
+    'sentiment': <sentiment>
+}
+```
+
 
 ## Stock market prediction based on Black Swan events
 
