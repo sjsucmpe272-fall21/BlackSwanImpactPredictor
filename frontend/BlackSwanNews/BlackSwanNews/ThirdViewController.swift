@@ -48,7 +48,8 @@ class ThirdViewController: UIViewController {
         let json = ["data_type": news_type]
         let jsonData = try? JSONSerialization.data(withJSONObject: json, options: [])
 
-        let url = URL(string: "http://18.222.219.39:5000/api/process-model")!
+        // passing the backend model URL as input
+        let url = URL(string: "http://18.222.25.85:5000/api/process-model")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
 
@@ -65,6 +66,7 @@ class ThirdViewController: UIViewController {
 
             }
             
+            // displaying the result in the front end
             let responseData = try? JSONSerialization.jsonObject(with: data, options: [])
             if let responseData = responseData as? [String: Any] {
                 for (key, value) in responseData{
@@ -92,6 +94,7 @@ class ThirdViewController: UIViewController {
         return result
     }
     
+    // function to convert the base64 string returned by the backend to a UI image object
     func convertBase64StringToImage (imageBase64String:String) -> UIImage {
         let imageData = Data.init(base64Encoded: imageBase64String, options: .init(rawValue: 0))
         let image = UIImage(data: imageData!)

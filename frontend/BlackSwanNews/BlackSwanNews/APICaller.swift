@@ -2,7 +2,7 @@
 //  APICaller.swift
 //  BlackSwanNews
 //
-//  Created by Mr. Puneet on 11/22/21.
+//  Created by Puneet Tokhi on 11/22/21.
 //
 
 import Foundation
@@ -10,10 +10,8 @@ import Foundation
 
 final class APICaller{
     static let shared = APICaller()
-    
-// "https://newsapi.org/v2/everything?q=stocks&apiKey=524e4c9811c8499099f2b7a41a117592"
 
-    
+    // Storing news API url as constants
     struct Constants {
         static var topHeadlinesURL = URL(string:
             "https://newsapi.org/v2/top-headlines?country=us&apiKey=524e4c9811c8499099f2b7a41a117592&pageSize=9"
@@ -23,6 +21,7 @@ final class APICaller{
     
     private init(){}
     
+    // function to fetch the top news articles around the globe
     public func getNews(completion: @escaping (Result<[Article], Error>)->Void){
         guard let url = Constants.topHeadlinesURL else{
             return
@@ -35,7 +34,6 @@ final class APICaller{
             else if let data = data {
                 do{
                     let result = try JSONDecoder().decode(APIResponse.self, from: data)
-                    print("pai",result)
                     completion(.success(result.articles))
                 }
                 catch {
@@ -46,7 +44,7 @@ final class APICaller{
         task.resume()
     }
     
-    
+    // fetches the 
     public func getMarketNews(completion: @escaping (Result<[JSONData], Error>)->Void){
         guard let path = Bundle.main.path(forResource: "data", ofType: "json") else{
             return

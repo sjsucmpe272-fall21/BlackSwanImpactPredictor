@@ -37,6 +37,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableview.frame = view.bounds
     }
     
+    // fetching the historical news data
     func getMarketNews(){
         APICaller.shared.getMarketNews { [weak self] result in
             switch result{
@@ -58,6 +59,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
 
+    // adding the table view delgate methods to conform to table view controller protocols
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModels.count
     }

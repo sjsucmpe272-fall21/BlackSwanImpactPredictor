@@ -2,7 +2,7 @@
 //  StockNewsTableViewCell.swift
 //  BlackSwanNews
 //
-//  Created by Mr. Puneet on 11/22/21.
+//  Created by Puneet Tokhi on 11/22/21.
 //
 
 import UIKit
